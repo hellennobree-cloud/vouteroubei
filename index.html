@@ -16,23 +16,24 @@ body{
     height:100vh;
     font-family:Arial, sans-serif;
 
-    /* 🖼️ imagem de fundo */
+    /* 🖼️ IMAGEM INTEIRA */
     background-image:url("flores.jpeg");
-    background-size:cover;
+    background-size:contain;
     background-position:center;
     background-repeat:no-repeat;
+    background-color:#000; /* fundo pra não ficar vazio */
 
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-/* camada escura */
+/* camada escura leve */
 body::before{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,0.45);
+    background:rgba(0,0,0,0.35);
 }
 
 /* texto */
