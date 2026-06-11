@@ -15,41 +15,70 @@
 html,body{
     width:100%;
     height:100%;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
 }
 
+/* 🖼️ FUNDO ANIMADO */
 body{
-    font-family:Arial, sans-serif;
+    position:relative;
+    background:#f5e6d3;
+}
 
-    /* 🖼️ imagem inteira aparecendo */
+/* camada da imagem animada */
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
     background-image:url("flores.jpeg");
     background-size:contain;
     background-position:center;
     background-repeat:no-repeat;
-    background-color:#f5e6d3;
 
-    position:relative;
+    animation:zoom 10s ease-in-out infinite alternate;
+    z-index:0;
 }
 
-/* caixa da mensagem */
+/* leve brilho escuro pra contraste */
+body::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.25);
+    z-index:0;
+}
+
+/* animação do fundo */
+@keyframes zoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.05);
+    }
+}
+
+/* mensagem */
 .mensagem{
     position:absolute;
-    top:60%;
+    top:68%;
     left:50%;
     transform:translate(-50%,-50%);
     
     width:320px;
     max-width:90%;
     text-align:center;
-    color:#222;
+    color:#fff;
+
+    z-index:1;
 }
 
-/* título */
+/* textos */
 .titulo{
     font-size:32px;
     font-weight:bold;
 }
 
-/* texto */
 .texto{
     font-size:28px;
     margin-top:10px;
