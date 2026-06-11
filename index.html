@@ -12,38 +12,47 @@
     box-sizing:border-box;
 }
 
+html,body{
+    width:100%;
+    height:100%;
+}
+
 body{
-    height:100vh;
     font-family:Arial, sans-serif;
 
-    /* 🖼️ IMAGEM INTEIRA */
+    /* 🖼️ imagem inteira aparecendo */
     background-image:url("flores.jpeg");
     background-size:contain;
     background-position:center;
     background-repeat:no-repeat;
-    background-color:#000; /* fundo pra não ficar vazio */
+    background-color:#f5e6d3;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    position:relative;
 }
 
-/* camada escura leve */
-body::before{
-    content:"";
+/* caixa da mensagem */
+.mensagem{
     position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.35);
+    top:60%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    
+    width:320px;
+    max-width:90%;
+    text-align:center;
+    color:#222;
+}
+
+/* título */
+.titulo{
+    font-size:32px;
+    font-weight:bold;
 }
 
 /* texto */
-h1{
-    position:relative;
-    z-index:1;
-    color:white;
-    font-size:32px;
-    text-align:center;
-    padding:20px;
+.texto{
+    font-size:28px;
+    margin-top:10px;
 }
 </style>
 
@@ -51,7 +60,16 @@ h1{
 
 <body>
 
-<h1>Oii Lindaaa 💖<br>o Cartão vence dia 15 !!</h1>
+<div class="mensagem">
+    <div class="titulo">
+        Oiii Linda !!! 💖
+    </div>
+
+    <div class="texto">
+        O vencimento do<br>
+        Cartão é dia 15 😂!!
+    </div>
+</div>
 
 </body>
 </html>
