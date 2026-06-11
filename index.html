@@ -1,64 +1,73 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💖</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,body{
-    width:100%;
-    height:100%;
-}
-
 body{
+    margin:0;
+    font-family:Arial;
+
+    /* 🔥 SUA FOTO AQUI DE VOLTA */
     background-image:url("flores.jpeg");
-    background-size:contain;
+    background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-    background-color:#f5e6d3;
-
-    font-family:Arial, sans-serif;
 }
 
-.mensagem{
+/* camada escura pra destacar texto */
+body::before{
+    content:"";
     position:absolute;
-    top:67%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:320px;
-    text-align:center;
-    color:#222;
+    inset:0;
+    background:rgba(0,0,0,0.35);
 }
 
-.titulo{
-    font-size:32px;
+/* chat por cima */
+.chat{
+    position:relative;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:20px;
+    gap:10px;
 }
 
-.texto{
-    font-size:28px;
+/* mensagem estilo WhatsApp */
+.mensagem{
+    display:flex;
 }
-</style>
-</head>
 
-<body>
+/* bolha */
+.bubble{
+    max-width:75%;
+    padding:12px 14px;
+    border-radius:12px;
+    background:#dcf8c6;
+    color:#111;
+    font-size:18px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
 
-<div class="mensagem">
-    <div class="titulo">
-        Oiii Linda !!! 💖
-    </div>
+/* animação entrada INSANA */
+.msg{
+    opacity:0;
+    transform:translateY(25px) scale(0.9);
+    animation:enter 0.6s forwards;
+}
 
-    <div class="texto">
-        O vencimento do<br>
-        Cartão é dia 15 😂!!
-    </div>
-</div>
+@keyframes enter{
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
 
-</body>
-</html>
+/* delays */
+.delay1{ animation-delay:0.6s; }
+.delay2{ animation-delay:1.6s; }
+
+/* efeito leve de brilho */
+.bubble{
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ box-shadow:0 0 10px rgba(255,255,255,0.1); }
+    to{ box-shadow:0 0 20px rgba(255,255,255,0.25); }
+}
