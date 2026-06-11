@@ -17,48 +17,57 @@ html,body{
     height:100%;
     overflow:hidden;
     font-family:Arial, sans-serif;
+    background:#000;
 }
 
-/* 🖼️ FUNDO ANIMADO */
-body{
-    position:relative;
-    background:#f5e6d3;
-}
-
-/* camada da imagem animada */
+/* 🖼️ FUNDO CINEMATOGRÁFICO */
 body::before{
     content:"";
     position:absolute;
-    inset:0;
+    inset:-10%;
     background-image:url("flores.jpeg");
     background-size:contain;
     background-position:center;
     background-repeat:no-repeat;
 
-    animation:zoom 10s ease-in-out infinite alternate;
+    animation:float 12s ease-in-out infinite;
     z-index:0;
 }
 
-/* leve brilho escuro pra contraste */
+/* 🌫️ overlay premium */
 body::after{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,0.25);
+    background:radial-gradient(circle, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
     z-index:0;
 }
 
-/* animação do fundo */
-@keyframes zoom{
-    from{
-        transform:scale(1);
+/* 🎬 animação viva */
+@keyframes float{
+    0%{
+        transform:scale(1) translateY(0px) rotate(0deg);
+        filter:brightness(1);
     }
-    to{
-        transform:scale(1.05);
+    25%{
+        transform:scale(1.03) translateY(-5px) rotate(0.3deg);
+        filter:brightness(1.05);
+    }
+    50%{
+        transform:scale(1.05) translateY(0px) rotate(-0.3deg);
+        filter:brightness(1.1);
+    }
+    75%{
+        transform:scale(1.03) translateY(5px) rotate(0.2deg);
+        filter:brightness(1.05);
+    }
+    100%{
+        transform:scale(1) translateY(0px) rotate(0deg);
+        filter:brightness(1);
     }
 }
 
-/* mensagem */
+/* 💬 mensagem */
 .mensagem{
     position:absolute;
     top:68%;
@@ -71,9 +80,22 @@ body::after{
     color:#fff;
 
     z-index:1;
+
+    animation:fadeIn 1.2s ease-out;
 }
 
-/* textos */
+/* entrada suave */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translate(-50%,-40%);
+    }
+    to{
+        opacity:1;
+        transform:translate(-50%,-50%);
+    }
+}
+
 .titulo{
     font-size:32px;
     font-weight:bold;
